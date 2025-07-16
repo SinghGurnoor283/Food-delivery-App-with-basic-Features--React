@@ -107,7 +107,7 @@ const Body = () => {
 
 
 
-           <div className="mt-8 px-4 py-6 sm:px-6 sm:py-8">
+           <div className="mt-6 px-4 py-6 sm:px-6 sm:py-8">
         <h2 className="text-2xl font-bold mb-4 ml-2 sm:ml-0">What's on your mind?</h2>
         
         <div className="flex flex-nowrap overflow-x-auto sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-12 pb-4">
