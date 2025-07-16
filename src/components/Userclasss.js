@@ -1,16 +1,16 @@
 import React from 'react';
 class userClass extends React.Component{
    constructor(props) {
-        super(props); // ✅ Always call super(props) first!;
+        super(props); 
         console.log("Child class constructor")
         this.state={
             count:0,
             userInfo:{
-                name:"Deafult", // Initial values like in useState 
+                name:"Deafult", 
                 login:"Default"
             }
         }
-        console.log("Constructor - props:", this.props.name); // 👀 See what props are passed
+        console.log("Constructor - props:", this.props.name); 
     }
             
     async componentDidMount(){
@@ -27,9 +27,6 @@ class userClass extends React.Component{
         console.log("child render method",this.props.name)
         return (
             <div className="userCard">
-                {/* <h2>Name: {this.props.name}</h2>
-                <h3>singhgurnoor283@gmail.com</h3>
-                <h4>Full stack developer</h4>*/}
                 <h5>Count:{this.state.count}</h5> 
                 <h2>Name: {name}</h2>
                 <h3>{login}</h3>

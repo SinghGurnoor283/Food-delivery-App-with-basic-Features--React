@@ -36,10 +36,10 @@ const Body = () => {
     }
 
     return (
-        <div className="w-full">
+        <div className="w-full bg-gray-50">
 
             <div className="flex flex-col md:flex-row justify-start items-center px-3 py-3 gap-4 mt-2">
-                {/* Search Input + Search Button */}
+                
                 <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
                     <input
                         type="text"
@@ -82,41 +82,34 @@ const Body = () => {
             </div>
 
          
-                    
-            <div className="my-9 w-[90%] md:w-[85%] lg:w-[90%] mx-auto rounded-[36px] overflow-hidden relative">
-  {/* Background Image */}
-                <img
-                    className="w-full h-auto object-cover rounded-[36px]"
-                    src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/seo/Food_collectionbanner.png"
-                    alt="Food Banner"
-                />
+        <div className="my-9 w-[92%] md:w-[85%] lg:w-[90%] mx-auto rounded-[36px] overflow-hidden relative">
+            <img
+                className="w-full h-auto object-cover rounded-[36px]"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/seo/Food_collectionbanner.png"
+                alt="Food Banner"
+            />
 
-                {/* Overlay Content */}
-                <div className="absolute inset-0 flex items-end px-4 sm:px-8 pb-6 sm:pb-8">
-                    <div className="text-white">
-                    <h1 className="text-2xl sm:text-2xl md:text-3xl font-bold leading-tight mb-1 sm:mb-2">
-                        Order Online Delivery
-                    </h1>
-                    <p className="text-lg sm:text-xl md:text-2xl font-semibold">
-                        Restaurants Near Me
-                    </p>
-                    </div>
+            <div className="absolute inset-0 flex items-end sm:items-end justify-start px-4 sm:px-8 pb-4 sm:pb-8">
+                <div className="text-white text-left">
+                <h1 className="text-base sm:text-2xl md:text-3xl font-bold leading-tight mb-1 sm:mb-2">
+                    Order Online Delivery
+                </h1>
+                <p className="text-sm sm:text-xl md:text-2xl font-semibold">
+                    Restaurants Near Me
+                </p>
                 </div>
+            </div>
             </div>
 
 
 
 
 
-            {/* Veryyy Imp. -- see how to use hook functions in readme file */}
 
-           <div className="mt-8 px-4 py-6 sm:px-6 sm:py-8 bg-gray-50">
+
+           <div className="mt-8 px-4 py-6 sm:px-6 sm:py-8">
         <h2 className="text-2xl font-bold mb-4 ml-2 sm:ml-0">What's on your mind?</h2>
-        {/*
-          Change made here: Adjusted gap for md screens from md:gap-4 to md:gap-6.
-          This provides more space between cards on medium-sized screens,
-          preventing overlapping.
-        */}
+        
         <div className="flex flex-nowrap overflow-x-auto sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-12 pb-4">
           {filteredRes.map((restaurant) => (
             <Link
@@ -134,13 +127,13 @@ const Body = () => {
                 <footer className="bg-gray-800 text-white py-8 mt-12">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-8 md:space-y-0">
-                    {/* Logo and Copyright */}
+                  
                     <div className="text-center md:text-left">
                     <h3 className="text-2xl font-bold mb-2">FoodDeliveryApp</h3>
                     <p className="text-sm text-gray-400">&copy; {new Date().getFullYear()} FoodApp. All rights reserved.</p>
                     </div>
 
-                    {/* Quick Links */}
+                  
                     <div className="text-center md:text-left">
                     <h4 className="text-lg font-semibold mb-3">Quick Links</h4>
                     <ul className="space-y-2 text-gray-300">
@@ -149,16 +142,16 @@ const Body = () => {
                     </ul>
                     </div>
 
-                    {/* Social Media Links */}
                     <div className="text-center md:text-left">
                     <h4 className="text-lg font-semibold mb-3">Follow Us</h4>
                     <div className="flex justify-center md:justify-start space-x-4">
                         <a href="https://www.linkedin.com/in/gurnoor-singh-191029290/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-200">
-                        {/* LinkedIn Icon */}
+                    
                         <FaLinkedin size={30} className="h-6 w-6" />
                         </a>
                         <a href="https://github.com/SinghGurnoor283" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-200">
-                        {/* GitHub Icon */}
+                       
+                       
                         <FaGithub className="h-6 w-6" />
                         </a>
                     </div>

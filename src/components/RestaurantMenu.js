@@ -1,49 +1,69 @@
 // import {useState,useEffect} from 'react';
 import {useParams} from 'react-router-dom';
-import {useState}  from 'react';
+import {useState,useEffect}  from 'react';
 import usemenuInfo from './usemenuInfo';
 import RestaurantCategory from './RestaurantCategory';
+import data10892 from '../../public/mockEachResMenu/10892.json';
+import data17301 from '../../public/mockEachResMenu/17301.json';
+import data77949 from '../../public/mockEachResMenu/77949.json';
+
+import data364221 from '../../public/mockEachResMenu/364221.json';
+import data426730 from '../../public/mockEachResMenu/426730.json';
+import data435405 from '../../public/mockEachResMenu/435405.json';
+import data457522 from '../../public/mockEachResMenu/457522.json';
+import data822315 from '../../public/mockEachResMenu/822315.json';
+const dataMap = {
+  10892: data10892,
+  17301: data17301,
+  77949: data77949,
+  364221: data364221,
+  426730: data426730,
+  435405: data435405,
+  457522: data457522,
+  822315: data822315
+  // add all mappings
+};
+
 const RestaurantMenu = ()=>{
     
-    const {resId}=useParams();
-    const menuInfo=usemenuInfo(resId);
+    // const menuInfo=usemenuInfo(resId);
 
-    // Fetching data can be done through custom hook -----Ep 9 -------- here usemenuInfo is a custom hook
-    // const[menuInfo,setmenuInfo]=useState(null);
+   const { resId } = useParams();
+  const [menuInfo, setmenuInfo] = useState(null);
+  const [showIndex, setshowIndex] = useState(null);
+
+  useEffect(() => {
+    const data = dataMap[+resId];
+    if (data) {
+      setmenuInfo(data);
+      console.log("resId:", resId);
+console.log("Loaded menuInfo:", dataMap[resId] || dataMap[+resId]);
+
+    } else {
+      console.error(`No data found for resId ${resId}`);
+    }
+  }, [resId]);
+
+  // Safely extract restaurantInfo and menu
+ const restaurantInfo = menuInfo?.data?.cards?.[2]?.card?.card?.info;
+const menu = menuInfo?.data?.cards?.[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]?.card?.card;
 
 
-    // useEffect(()=>{
-    //     fetchMenu()
-    // },[])
 
 
-    // const fetchMenu = async ()=>{
-    //     const data=await fetch(`https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9628669&lng=77.57750899999999&restaurantId=`+resId)
-    //     const response=await data.json()
-    //     console.log(response);
-    //     console.log(menuInfo?.cards[2]?.card?.info?.name);
-    //     setmenuInfo(response.data)
-    // }
+
+  if (!menuInfo?.data || !restaurantInfo || !menu) return <h1>Loading...</h1>;
 
 
-    const [showIndex,setshowIndex]=useState(null)
-
-    const restaurantInfo=menuInfo?.cards[2]?.card?.card?.info
-    const menu = menuInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-    console.log(menuInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
-    const itemCards = menu?.itemCards || [];
-    if (!restaurantInfo) return <h1>Loading...</h1>; 
-    if (!menuInfo) return <h1>Loading...</h1>; 
-
-            const categories = menuInfo?.cards?.[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
-                (c) => {
-                    const type = c.card?.card?.["@type"];
-                    return (
-                    type === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" ||
-                    type === "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
-                    );
-                }
-                );
+  const categories = menuInfo?.data?.cards?.[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+  (c) => {
+    const type = c.card?.card?.["@type"];
+    return (
+      type === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" ||
+      type === "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
+    );
+  }
+);
             return (
                 <div className="text-center">
                     <div className="text-center mb-6">

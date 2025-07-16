@@ -1,11 +1,6 @@
 
 
-// We will make one res-card component for each restaurant and we will pass the restaurant details as props(arguments) to the component
-// Prop is an object
-// As it is an  Javascript object , we can access it using {}
-
-const Restaurantcard=(props)=>{ // As props is an object, we can also take it as a destructured object like ({Name,cuisines,rating,time})   
-    //  const {name, address, rating} = props;
+const Restaurantcard=(props)=>{ 
     const {resData}=props; // it will also be object
     console.log(resData.info.cloudinaryImageId);
     const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } = resData?.info;

@@ -11,17 +11,7 @@ import {Provider} from 'react-redux';
 import appStore from './src/components/appStore.js';
 import Cart from './src/components/Cart.js';
 import Login from './src/components/Login.js';
-// Now i had written all components in this one files only but it is not good practice to do so. It is better to write each component in separate file. So, i will create separate file for each component and import them in this file. I will create a folder src inside Ep-4
 
-// Header component is in Header.js file
-
-// Taking data from swiggy app, it is array of objects
-// It is also in Body.js file
-
-
-// We will make one res-card component for each restaurant and we will pass the restaurant details as props(arguments) to the component
-// Prop is an object
-// As it is an  Javascript object , we can access it using {}
 
 const AppLayout=()=>{
     return (
